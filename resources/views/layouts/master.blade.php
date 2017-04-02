@@ -13,12 +13,21 @@
 </head>
 
 <body>
+
   @include('layouts.nav')
 
   @include('layouts.carousel')
-  @include('layouts.heading')
+  <div class="container marketing">
 
-  @yield('content')
+    @include('layouts.heading')
+
+    @yield('content')
+
+    @include('layouts.feature')
+    
+    @include('layouts.footer')
+
+  </div><!-- container -->
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
