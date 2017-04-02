@@ -17,6 +17,7 @@
   @include('layouts.nav')
 
   @include('layouts.carousel')
+  
   <div class="container marketing">
 
     @include('layouts.heading')
@@ -24,7 +25,7 @@
     @yield('content')
 
     @include('layouts.feature')
-    
+
     @include('layouts.footer')
 
   </div><!-- container -->
