@@ -2,9 +2,8 @@
 
 
 
-//
-// Route::get('/', function () {
-//     return view('welcome');
-// });
 
+// POSTS
 Route::get('/', 'PostsController@index');
+// SESSIONS
+Route::get('/login/create', 'SessionsController@create');
