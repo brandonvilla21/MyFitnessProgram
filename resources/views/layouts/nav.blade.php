@@ -24,7 +24,7 @@
     </form>
     <ul class="space nav navbar-nav navbar-right">
       <li class="navbar-item">
-        <a class="nav-link btn btn-outline-primary" href="/login/create">Log in</a>
+        <a class="nav-link btn btn-outline-primary" href="/login/">Log in</a>
       </li>
     </ul>
   </div>

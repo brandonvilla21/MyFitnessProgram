@@ -21,9 +21,10 @@
 
   <div class="container marketing">
 
-    @include('layouts.heading')
-
     @yield('content')
+
+
+    @include('layouts.heading')
 
     @include('layouts.feature')
 
