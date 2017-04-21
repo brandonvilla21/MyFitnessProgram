@@ -23,9 +23,14 @@
       <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>
     </form>
     <ul class="space nav navbar-nav navbar-right">
-      <li class="navbar-item">
-        <a class="nav-link btn btn-outline-primary" href="/login/">Log in</a>
-      </li>
+      @if (Auth::check())
+            <a class="nav-link ml-auto" href="#">{{ Auth::user()->name }}</a>
+            <a class="nav-link btn btn-danger" href="/logout">Log out</a>
+
+      @else
+        <a class="btn btn-primary" href="/login">Log in</a>
+        <a class="btn btn-success" href="/register">Sign Up</a>
+      @endif
     </ul>
   </div>
 </nav>
