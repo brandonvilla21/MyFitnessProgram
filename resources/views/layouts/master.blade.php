@@ -10,6 +10,7 @@
   <!-- Custom styles for this template -->
   <link href="/css/carousel.css" rel="stylesheet">
   <link rel="stylesheet" href="/css/complements.css">
+  <link rel="icon" href="gym_icon.ico">
 
 </head>
 
