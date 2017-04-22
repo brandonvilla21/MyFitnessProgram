@@ -2,7 +2,7 @@
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand" href="/">MyFitProgram</a>
+  <a class="navbar-brand" href="/">MyFitnessProgram</a>
   <div class="collapse navbar-collapse" id="navbarCollapse">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
@@ -21,9 +21,9 @@
 
     @if (count($archives))
       <div class="dropdown">
-        <button class="btn btn-primary btn-space dropdown-toggle" type="button" data-toggle="dropdown">Archives
+        <button class="btn btn-primary btn-space btn-responsive dropdown-toggle" type="button" data-toggle="dropdown">Archives
           <span class="caret"></span></button>
-          <ul class="dropdown-menu">
+          <ul class="dropdown-menu" role="menu">
             @foreach ($archives as $stats)
               <li>
                 <a class="nav-link" href="/?month={{ $stats['month'] }}&year={{ $stats['year'] }}">
@@ -33,11 +33,11 @@
             @endforeach
           </ul>
         </div>
-    @endif
+      @endif
 
       @if (count($tags))
         <div class="dropdown">
-          <button class="btn btn-primary btn-space dropdown-toggle" type="button" data-toggle="dropdown">Tags
+          <button class="btn btn-primary btn-space btn-responsive dropdown-toggle" type="button" data-toggle="dropdown">Tags
             <span class="caret"></span></button>
             <ul class="dropdown-menu">
               @foreach ($tags as $tag)
@@ -49,20 +49,24 @@
               @endforeach
             </ul>
           </div>
-      @endif
-      {{-- <form class="form-inline mt-2 mt-md-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="Find your plan...">
-      <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>
-    </form> --}}
-    <ul class="space nav navbar-nav navbar-right">
-      @if (Auth::check())
-        <a class="nav-link ml-auto" href="#">{{ Auth::user()->name }}</a>
-        <a class="nav-link btn btn-danger btn-space" href="/logout">Log out</a>
+        @endif
+        {{-- <form class="form-inline mt-2 mt-md-0">
+        <input class="form-control mr-sm-2" type="text" placeholder="Find your plan...">
+        <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>
+      </form> --}}
+      <ul class="navbar-nav navbar-right">
+        @if (Auth::check())
+          <li class="nav-item"><a class="nav-link" href="#">{{ Auth::user()->name }}</a></li>
+          <li class="nav-item"><a class="nav-link text-danger" href="/logout">Log out</a></li>
 
-      @else
-        <a class="btn btn-primary btn-space" href="/login">Log in</a>
-        <a class="btn btn-success btn-space" href="/register">Sign Up</a>
-      @endif
-    </ul>
-  </div>
-</nav>
+        @else
+          <li class="nav-item">
+            <a class="nav-link text-primary" href="/login">Log in</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-success" href="/register">Sign Up</a>
+          </li>
+        @endif
+      </ul>
+    </div>
+  </nav>
