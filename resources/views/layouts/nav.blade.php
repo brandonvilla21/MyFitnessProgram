@@ -50,23 +50,28 @@
             </ul>
           </div>
         @endif
-        {{-- <form class="form-inline mt-2 mt-md-0">
-        <input class="form-control mr-sm-2" type="text" placeholder="Find your plan...">
-        <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>
-      </form> --}}
-      <ul class="navbar-nav navbar-right">
-        @if (Auth::check())
-          <li class="nav-item"><a class="nav-link" href="#">{{ Auth::user()->name }}</a></li>
-          <li class="nav-item"><a class="nav-link text-danger" href="/logout">Log out</a></li>
 
-        @else
-          <li class="nav-item">
-            <a class="nav-link text-primary" href="/login">Log in</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-success" href="/register">Sign Up</a>
-          </li>
-        @endif
+
+      <!-- Right Side Of Navbar -->
+      <ul class="nav navbar-nav navbar-right">
+          <!-- Authentication Links -->
+          @if (Auth::guest())
+              <li class="nav-item"><a class="nav-link text-primary" href="/login">Login</a></li>
+              <li class="nav-item"><a class="nav-link text-success" href="/register">Register</a></li>
+          @else
+            <li class="dropdown">
+              <a href="#" class="btn btn-primary btn-space btn-responsive dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                      {{ Auth::user()->name }} <span class="caret"></span>
+                  </a>
+                  <img src="/uploads/avatars/{{ Auth::user()->avatar }}" style="width:32px; height:32px; top:10px; left:10px; border-radius:50%">
+                    
+                  <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenu">
+                      <li class="nav-item"><a href="/profile">Profile</a> </li>
+                      <li class="nav-item"><a href="/logout">Logout</a> </li>
+
+                  </ul>
+              </li>
+          @endif
       </ul>
     </div>
   </nav>
