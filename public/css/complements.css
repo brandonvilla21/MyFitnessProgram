@@ -23,3 +23,19 @@
     line-height: 1.2;
   }
 }
+
+/*AVATAR*/
+.img-avatar{
+   width: 12em;
+   border-radius: 5px;
+   border-style: solid;
+   border-width: 1px;
+   float: left;
+   border-radius: 50px;
+   margin-right: 25px;
+}
+
+.img-index
+{
+  width: 12em;
+}
