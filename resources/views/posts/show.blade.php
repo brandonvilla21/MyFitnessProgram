@@ -37,26 +37,29 @@
 
     <hr>
 
-    <div class="card">
+    @if (Auth::check())
+        <div class="card">
 
-      <div class="card-block">
+          <div class="card-block">
 
-        <form method="POST" action="/posts/{{ $post->id }}/comments">
-          {{ csrf_field() }}
+            <form method="POST" action="/posts/{{ $post->id }}/comments">
+              {{ csrf_field() }}
 
-          <div class="form-group">
-            <textarea name="body" placeholder="Type your comment here..." class="form-control" required></textarea>
+              <div class="form-group">
+                <textarea name="body" placeholder="Type your comment here..." class="form-control" required></textarea>
+              </div>
+
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary">Add comment</button>
+              </div>
+
+            </form>
+
+            @include('layouts.errors')
           </div>
+        </div>
 
-          <div class="form-group">
-            <button type="submit" class="btn btn-primary">Add comment</button>
-          </div>
-
-        </form>
-
-        @include('layouts.errors')
-      </div>
-    </div>
+    @endif
 
     @include('layouts.tags')
 
