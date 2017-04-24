@@ -1,9 +1,9 @@
 @extends('layouts.master')
 
 @section('content')
-  <div class="col-sm-8">
-    <h1>Register</h1>
-
+  <div class="col-sm-8 container">
+    <h3 class="list-group-item list-group-item-success">Register</h3>
+    <hr>
     <form class="POST" action="/register" method="POST">
       {{csrf_field()}}
 

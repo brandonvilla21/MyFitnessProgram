@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-  <div class="col-md-8">
+  <div class="col-md-8 container">
     <h3 class="list-group-item list-group-item-success">Sign In</h3>
     <hr>
 

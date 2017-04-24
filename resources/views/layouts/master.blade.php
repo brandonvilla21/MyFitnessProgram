@@ -18,19 +18,16 @@
 
   @include('layouts.nav')
 
-  @include('layouts.carousel')
-
   @if ($flash = session('message'))
-      <div id="flash-message" class="alert alert-success" role="alert">
-        {{ $flash }}
-      </div>
-    @endif
+    <div id="flash-message" class="alert alert-success" role="alert">
+      {{ $flash }}
+    </div>
+  @endif
 
-  <div class="container marketing">
-
-    @yield('content')
+  @yield('content')
 
 
+  <div class="container">
     {{-- @include('layouts.heading') --}}
 
     @include('layouts.feature')

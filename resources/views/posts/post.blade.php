@@ -1,4 +1,4 @@
-<div class="col-lg-4">
+<div class="col-lg-4 container">
   <img class="rounded-circle" src="/uploads/avatars/{{$post->user->avatar }}" alt="Generic placeholder image" width="140">
   <h2 class="blog-post-title">
     <a href="/posts/{{ $post->id }}">
