@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use Image;
+use Illuminate\Validation\Rule;
 
 class UserController extends Controller
 {
@@ -20,7 +21,7 @@ class UserController extends Controller
     return view('users.profile', compact('user'));
   }
 
-  public function updateAvatar()
+  public function updateAvatar(Request $request)
   {
     if (request()->hasFile('avatar')) {
       $avatar = request()->file('avatar');
