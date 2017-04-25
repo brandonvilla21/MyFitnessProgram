@@ -14,17 +14,17 @@
   </div>
 
   <div class="form-group">
-
     <label for="body">Body:</label>
-
     <textarea name="body" id="body" class="form-control"></textarea>
-
   </div>
 
   <div class="form-group">
+    <label for="body">Post image:</label>
+      <input type="file" name="image" class="form-control">
+  </div>
 
+  <div class="form-group">
   <button type="submit" class="btn btn-primary">Publish</button>
-
   </div>
 
   @include('layouts.errors')
