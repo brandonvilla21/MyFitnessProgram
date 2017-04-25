@@ -45,6 +45,12 @@ class Post extends Model
     ->toArray();
   }
 
+  public static function currentMonthPosts()
+  {
+    return static::where('created_at', '>=', Carbon::now()->startOfMonth())
+    ->get();
+  }
+
   public function tags()
   {
     return $this->belongsToMany(Tag::class);
