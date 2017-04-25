@@ -44,3 +44,31 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
+
+{{-- @if (count($lastPosts))
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    @for ($i=0; $i < sizeOf($lastPosts); $i++)
+      <li data-target="#myCarousel" data-slide-to="{{ $i }}"></li>
+
+    @endfor
+  </ol>
+
+  <div class="carousel-inner" role="listbox">
+
+    @for ($i = 0; $i < sizeOf($lastPosts); $i++)
+      <div class="carousel-item @if($i ==0) active @endif">
+        <img class="slide" src="uploads/posts/{{ $lastPosts[$i]->image }}" alt="{{ $lastPosts[$i]->title }}">
+        <div class="container">
+          <div class="carousel-caption d-none d-md-block text-left">
+            <h1>{{ $lastPosts[$i]->title }}</h1>
+            <p>{{ $lastPosts[$i]->body }}</p>
+
+            <p><a class="btn btn-lg btn-primary" href="/posts/{{ $lastPosts[$i]->id }}" role="button">See Details!</a></p>
+          </div>
+        </div>
+      @endfor
+    </div>
+
+  @endif --}}
