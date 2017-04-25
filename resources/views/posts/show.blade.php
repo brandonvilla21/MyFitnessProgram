@@ -4,9 +4,16 @@
 
   <div class="col-sm-8 container">
 
-    <h1> {{ $post->title }}</h1>
+    <h1 class="text-center h3"> {{ $post->title }}</h1>
+    <hr>
+    <div class="form-group">
+      <img class="img-show img-responsive rounded mx-auto d-block" src="/uploads/posts/{{$post->image }}" alt="Generic placeholder image" width="400">
+      <hr>
+      <blockquote>
+        {{ $post->body }}
+      </blockquote>
 
-    {{ $post->body }}
+    </div>
 
     <hr>
 

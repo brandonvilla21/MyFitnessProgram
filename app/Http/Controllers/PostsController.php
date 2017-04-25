@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Post;
 use App\Repositories\Posts;
 use Carbon\Carbon;
+use Image;
 
 
 class PostsController extends Controller
@@ -39,28 +40,30 @@ class PostsController extends Controller
     return view('posts.create');
   }
 
-  public function store()
+  public function store(Request $request)
   {
-    //Here is where we create a new post using the request database,
-    // $post = new Post;
-    //
-    //
-    // $post->title = request('title');
-    // $post->body = request('body');
-    //
-    // // dd(request(['title','body']));
-    //
-    // //We'll save within the database
-    // $post->save();
-
-    $this->validate(request(), [
+    $this->validate($request, [
       'title' => 'required|max:255',
-      'body' => 'required'
+      'body' => 'required',
+      'photo' => 'required'
     ]);
 
-    auth()->user()->publish(
-      new Post(request(['title', 'body']))
-    );
+    //Manipulate the image
+    if ($request->hasFile('photo')) {
+      $post_image = $request->file('photo');
+      $filename = time() . '.' . $post_image->getClientOriginalExtension();
+
+      Image::make($post_image)->resize(1000, null, function ($constraint) {
+        $constraint->aspectRatio();
+        $constraint->upsize();
+      })->save( public_path('/uploads/posts/') . $filename);
+
+      $post = new Post(request(['title', 'body', 'image']));
+      $post->image = $filename;
+
+      auth()->user()->publish($post);
+    }
+
 
     //And then redirect to the homepage.
     return redirect('/');
