@@ -9,7 +9,7 @@
       <h3 for="update">Update profile avatar:</h3>
       <input type="file" name="avatar" class="form-group">
       <input type="submit" class="pull-right btn btn-sm btn-primary">
-
+      @include('layouts.errors')
     </form>
     <hr>
     <div class="form-group">
