@@ -45,7 +45,7 @@ class PostsController extends Controller
     $this->validate($request, [
       'title' => 'required|max:255',
       'body' => 'required',
-      'photo' => 'required'
+      'photo' => 'required|image'
     ]);
 
     //Manipulate the image
