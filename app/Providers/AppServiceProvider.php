@@ -5,7 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use App\Billing\Stripe;
 use Illuminate\Support\Facades\Schema;
-
+use App\Post;
 class AppServiceProvider extends ServiceProvider
 {
 
@@ -19,11 +19,17 @@ class AppServiceProvider extends ServiceProvider
         Schema::defaultStringLength(191);
         view()->composer('layouts.nav', function ($view){
 
-          $archives = \App\Post::archives();
+          $archives = Post::archives();
           $tags = \App\Tag::has('posts')->pluck('name');
 
           $view->with(compact('archives', 'tags'));
         });
+
+        view()->composer('layouts.carousel', function ($view){
+
+          $lastPosts = Post::currentMonthPosts();
+          $view->with(compact('lastPosts'));
+          });
     }
 
     /**
