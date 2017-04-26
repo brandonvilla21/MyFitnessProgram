@@ -47,7 +47,7 @@ class Post extends Model
 
   public static function currentMonthPosts()
   {
-    return static::where('created_at', '>=', Carbon::now()->startOfMonth())
+    return static::where('created_at', '>=', Carbon::now()->startOfDay())
     ->get();
   }
 
