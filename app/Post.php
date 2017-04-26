@@ -18,7 +18,7 @@ class Post extends Model
 
   public function addComment($body)
   {
-    $user_id = $this->user_id;
+    $user_id = auth()->user()->id;
     $post_id = $this->id;
 
     $this->comments()->create(compact('user_id', 'post_id', 'body'));
