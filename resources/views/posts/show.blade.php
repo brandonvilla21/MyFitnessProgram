@@ -8,11 +8,11 @@
     <hr>
     <div class="form-group">
       <img class="img-show img-responsive rounded mx-auto d-block" src="/uploads/posts/{{$post->image }}" alt="Generic placeholder image" width="400">
-      <hr>
-      <blockquote>
+      <span class="glyphicon glyphicon-time"></span><h6 class="small comment-meta text-center">Posted by<a href="#"> {{ $post->user->name }}</a> | {{ $post->created_at->diffForHumans() }}</h6>
+      <hr >
+      <p clss="lead">
         {{ $post->body }}
-      </blockquote>
-
+      </p>
     </div>
 
     <hr>
@@ -29,26 +29,26 @@
     <hr>
 
     @if (Auth::check())
-        <div class="card">
+      <div class="card">
 
-          <div class="card-block">
+        <div class="card-block">
 
-            <form method="POST" action="/posts/{{ $post->id }}/comments">
-              {{ csrf_field() }}
+          <form method="POST" action="/posts/{{ $post->id }}/comments">
+            {{ csrf_field() }}
 
-              <div class="form-group">
-                <textarea name="body" placeholder="Type your comment here..." class="form-control" required></textarea>
-              </div>
+            <div class="form-group">
+              <textarea name="body" placeholder="Type your comment here..." class="form-control" required></textarea>
+            </div>
 
-              <div class="form-group">
-                <button type="submit" class="btn btn-primary">Add comment</button>
-              </div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary">Add comment</button>
+            </div>
 
-            </form>
+          </form>
 
-            @include('layouts.errors')
-          </div>
+          @include('layouts.errors')
         </div>
+      </div>
 
     @endif
 
