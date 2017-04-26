@@ -1,6 +1,5 @@
 @if (count($lastPosts))
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
-
     <div class="carousel-inner" role="listbox">
         @for ($i = 0; $i < sizeOf($lastPosts); $i++)
           <div class="carousel-item @if($i ==0) active @endif">
@@ -8,8 +7,7 @@
             <div class="container">
               <div class="carousel-caption d-none d-md-block text-left">
                 <h1>{{ $lastPosts[$i]->title }}</h1>
-                <p>{{ $lastPosts[$i]->body }}</p>
-
+                <p class="lead">{{ $preview = substr($lastPosts[$i]->body, 0, 100) . '...'}}</p>
                 <p><a class="btn btn-lg btn-primary" href="/posts/{{ $lastPosts[$i]->id }}" role="button">See Details!</a></p>
               </div>
             </div>
