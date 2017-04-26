@@ -5,7 +5,7 @@ namespace App;
 class Comment extends Model
 {
 
-    protected $fillable = ['user_id', 'post_id', 'body'];
+    protected $fillable = ['post_id', 'user_id', 'body'];
 
     public function post()
     {
