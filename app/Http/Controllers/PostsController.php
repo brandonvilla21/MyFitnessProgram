@@ -43,12 +43,14 @@ class PostsController extends Controller
   public function store(Request $request)
   {
     $this->validate($request, [
-      'title' => 'required|max:255',
+      'title' => 'required|max:60',
       'body' => 'required',
-      'photo' => 'required|image'
+      'photo' => 'image'
     ]);
 
     //Manipulate the image
+    $filename = "default.jpg";
+
     if ($request->hasFile('photo')) {
       $post_image = $request->file('photo');
       $filename = time() . '.' . $post_image->getClientOriginalExtension();
@@ -58,11 +60,15 @@ class PostsController extends Controller
         $constraint->upsize();
       })->save( public_path('/uploads/posts/') . $filename);
 
-      $post = new Post(request(['title', 'body', 'image']));
-      $post->image = $filename;
-
-      auth()->user()->publish($post);
     }
+
+    //
+    $post = new Post(request(['title', 'body', 'image']));
+    $post->image = $filename;
+
+
+    //Add the post slug to the post object
+    auth()->user()->publish($post);
 
 
     //And then redirect to the homepage.
