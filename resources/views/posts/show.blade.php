@@ -16,29 +16,13 @@
     </div>
 
     <hr>
+    <br>
+    <h3 class="m-b-2">Comments</h3>
+    @foreach ($post->comments as $comment)
 
-    <div class="comments">
-
-      <ul class="list-group">
-
-        @foreach ($post->comments as $comment)
-
-          <li class="list-group-item">
-
-            <strong>
-              {{ $comment->created_at->diffForHumans() }}: &nbsp;
-
-            </strong>
-
-
-            {{ $comment->body }}
-          </li>
-
-        @endforeach
-
-      </ul>
-
-    </div>
+      @include('layouts.comments')
+      <hr>
+    @endforeach
 
     {{-- Add a comment --}}
 
