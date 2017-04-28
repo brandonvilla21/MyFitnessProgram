@@ -63,3 +63,7 @@
   border-width: 1px;
   border-radius: 50px;
 }
+
+.title-padding-bottom {
+  padding-bottom: 1rem;
+}
