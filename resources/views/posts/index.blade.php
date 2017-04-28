@@ -18,5 +18,4 @@
     </div><!-- /.blog-main -->
 
   </div>
-
 @endsection
