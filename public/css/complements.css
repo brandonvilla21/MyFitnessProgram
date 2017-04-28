@@ -57,7 +57,7 @@
 }
 
 .img-show{
-  width: 20em;
+  width: 15em;
   border-radius: 5px;
   border-style: solid;
   border-width: 1px;
@@ -67,3 +67,6 @@
 .title-padding-bottom {
   padding-bottom: 1rem;
 }
+
+
+/*CAROUSEL*/
