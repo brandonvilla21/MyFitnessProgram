@@ -3,7 +3,8 @@
     <div class="carousel-inner" role="listbox">
         @for ($i = 0; $i < sizeOf($posts); $i++)
           <div class="carousel-item @if($i ==0) active @endif">
-            <img class="img-responsive" src="uploads/posts/{{ $posts[$i]->image }}" alt="{{ $posts[$i]->title }}">
+
+            <img class="img-responsive" src="/uploads/posts/{{ $posts[$i]->image }}" alt="{{ $posts[$i]->title }}">
             <div class="container">
               <div class="carousel-caption d-none d-md-block text-left">
                 <h1>{{ $posts[$i]->title }}</h1>
