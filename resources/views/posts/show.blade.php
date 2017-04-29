@@ -10,9 +10,23 @@
       <img class="img-show img-responsive rounded mx-auto d-block" src="/uploads/posts/{{$post->image }}" alt="Generic placeholder image" width="400">
       <span class="glyphicon glyphicon-time"></span><h6 class="small comment-meta text-center">Posted by<a href="#"> {{ $post->user->name }}</a> | {{ $post->created_at->diffForHumans() }}</h6>
       <hr >
-      <p clss="lead">
-        {{ $post->body }}
-      </p>
+      <div class="row">
+        <div class="col-md-5">
+          <div class="form-group">
+            <div class="list-group">
+              <a href="#" class=" list-group-item active">Routine information</a>
+              <a class="text-muted list-group-item">Routine for: {{ $post->routine_for }}</a>
+              <a class="text-muted list-group-item">Difficulty level: {{ $post->difficulty_level }}</a>
+              <a class="text-muted list-group-item">Body parts: {{ $post->body_parts }}</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-7">
+          <p clss="lead">
+            {{ $post->body }}
+          </p>
+        </div>
+      </div>
     </div>
 
     <hr>
@@ -55,8 +69,6 @@
     @include('layouts.tags')
 
   </div>
-
-
 
 
 @endsection
