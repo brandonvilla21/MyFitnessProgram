@@ -48,9 +48,10 @@ class PostsController extends Controller
       'routine_for'       => 'required',
       'difficulty_level'  => 'required',
       'body_parts'        => 'required',
+      'tags'              => 'required',
       'photo'             => 'image'
     ]);
-    
+
     //Convert array to string
     $body_partsString = implode(', ', $request->body_parts);
 
@@ -73,9 +74,11 @@ class PostsController extends Controller
     $post->image = $filename;
     $post->body_parts = $body_partsString;
 
+    //Getting the tags in a variable.
+    $tags = $request->tags;
 
     //Add the post slug to the post object
-    auth()->user()->publish($post);
+    auth()->user()->publish($post, $tags);
 
 
     //And then redirect to the homepage.

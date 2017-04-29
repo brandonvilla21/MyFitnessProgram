@@ -4,6 +4,8 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Tag;
+
 
 class User extends Authenticatable
 {
@@ -32,9 +34,15 @@ class User extends Authenticatable
       return $this->hasMany(Post::class);
     }
 
-    public function publish(Post $post)
+    public function publish(Post $post, $tags)
     {
-      $this->posts()->save($post); 
+      $this->posts()->save($post);
+
+      //Attaching the post with its tags.
+      for ($i=0; $i < sizeOf($tags); $i++) {
+        $tag = Tag::where('id', $tags[$i])->first();
+        $post->tags()->attach($tag);
+      }
 
       // Post::create([
       //   'title' => request('title'),
