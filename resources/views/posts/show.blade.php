@@ -7,7 +7,7 @@
     <h1 class="text-center h3"> {{ $post->title }}</h1>
     <hr>
     <div class="form-group">
-      <img class="img-show img-responsive rounded mx-auto d-block" src="/uploads/posts/{{$post->image }}" alt="Generic placeholder image" width="400">
+      <img class="img-show img-fluid rounded mx-auto d-block" src="/uploads/posts/{{$post->image }}" alt="Generic placeholder image" width="400">
       <span class="glyphicon glyphicon-time"></span><h6 class="small comment-meta text-center">Posted by<a href="#"> {{ $post->user->name }}</a> | {{ $post->created_at->diffForHumans() }}</h6>
       <hr >
       <div class="row">
