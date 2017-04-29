@@ -19,7 +19,7 @@ class AppServiceProvider extends ServiceProvider
   public function boot()
   {
     Schema::defaultStringLength(191);
-    
+
     view()->composer('layouts.nav', function ($view){
 
       $archives = Post::archives();
@@ -28,11 +28,11 @@ class AppServiceProvider extends ServiceProvider
       $view->with(compact('archives', 'tags'));
     });
 
-    view()->composer('layouts.carousel', function ($view){
-
-      $lastPosts = Post::currentMonthPosts();
-      $view->with(compact('lastPosts'));
-    });
+    // view()->composer('layouts.carousel', function ($view){
+    //
+    //   $lastPosts = Post::currentMonthPosts();
+    //   $view->with(compact('lastPosts'));
+    // });
 
     view()->composer('tags.show', function ($view){
 

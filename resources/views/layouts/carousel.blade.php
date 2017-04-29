@@ -1,14 +1,14 @@
-@if (count($lastPosts))
+@if (count($posts))
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner" role="listbox">
-        @for ($i = 0; $i < sizeOf($lastPosts); $i++)
+        @for ($i = 0; $i < sizeOf($posts); $i++)
           <div class="carousel-item @if($i ==0) active @endif">
-            <img class="img-responsive" src="uploads/posts/{{ $lastPosts[$i]->image }}" alt="{{ $lastPosts[$i]->title }}">
+            <img class="img-responsive" src="uploads/posts/{{ $posts[$i]->image }}" alt="{{ $posts[$i]->title }}">
             <div class="container">
               <div class="carousel-caption d-none d-md-block text-left">
-                <h1>{{ $lastPosts[$i]->title }}</h1>
-                <p class="lead">{{ $preview = substr($lastPosts[$i]->body, 0, 100) . '...'}}</p>
-                <p><a class="btn btn-lg btn-primary" href="/posts/{{ $lastPosts[$i]->id }}" role="button">See Details!</a></p>
+                <h1>{{ $posts[$i]->title }}</h1>
+                <p class="lead">{{ $preview = substr($posts[$i]->body, 0, 100) . '...'}}</p>
+                <p><a class="btn btn-lg btn-primary" href="/posts/{{ $posts[$i]->id }}" role="button">See Details!</a></p>
               </div>
             </div>
           </div>
