@@ -18,6 +18,9 @@ class CreatePostsTable extends Migration
             $table->integer('user_id');
             $table->string('title');
             $table->text('body');
+            $table->string('routine_for');
+            $table->string('difficulty_level');
+            $table->string('body_parts');
             $table->string('image')->default('default.jpg');
             $table->timestamps();
         });
