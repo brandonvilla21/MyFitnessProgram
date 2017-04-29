@@ -43,10 +43,16 @@ class PostsController extends Controller
   public function store(Request $request)
   {
     $this->validate($request, [
-      'title' => 'required|max:60',
-      'body' => 'required',
-      'photo' => 'image'
+      'title'             => 'required|max:60',
+      'body'              => 'required',
+      'routine_for'       => 'required',
+      'difficulty_level'  => 'required',
+      'body_parts'        => 'required',
+      'photo'             => 'image'
     ]);
+    
+    //Convert array to string
+    $body_partsString = implode(', ', $request->body_parts);
 
     //Manipulate the image
     $filename = "default.jpg";
@@ -63,8 +69,9 @@ class PostsController extends Controller
     }
 
     //
-    $post = new Post(request(['title', 'body', 'image']));
+    $post = new Post(request(['title', 'body', 'routine_for', 'difficulty_level', 'body_parts', 'image']));
     $post->image = $filename;
+    $post->body_parts = $body_partsString;
 
 
     //Add the post slug to the post object
