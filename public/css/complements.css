@@ -11,7 +11,7 @@
 }
 
 .list-group-item{
-  margin-bottom: 3px;
+  margin-bottom: 0px;
 }
 
 .small{
@@ -75,5 +75,4 @@
 .title-padding-bottom {
   padding-bottom: 1rem;
 }
-
 /*CAROUSEL*/
