@@ -27,35 +27,20 @@
 
       </div>
       <div class="col-md-1">
-
       </div>
       <div class="col-md-7">
         <h3>Your posts:</h3>
         <div class="list-group pb-3">
-          <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-            <div class="d-flex w-100 justify-content-between">
-              <h5 class="mb-1">List group item heading</h5>
-              <small>3 days ago</small>
-            </div>
-            <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-            <small>Donec id elit non mi porta.</small>
-          </a>
-          <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-            <div class="d-flex w-100 justify-content-between">
-              <h5 class="mb-1">List group item heading</h5>
-              <small class="text-muted">3 days ago</small>
-            </div>
-            <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-            <small class="text-muted">Donec id elit non mi porta.</small>
-          </a>
-          <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-            <div class="d-flex w-100 justify-content-between">
-              <h5 class="mb-1">List group item heading</h5>
-              <small class="text-muted">3 days ago</small>
-            </div>
-            <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-            <small class="text-muted">Donec id elit non mi porta.</small>
-          </a>
+          @foreach ($user->posts as $post)
+            <a href="/posts/{{ $post->id }}" class="list-group-item list-group-item-action flex-column align-items-start">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">{{ $post->title }}</h5>
+                <small>{{ $post->created_at->diffForHumans() }}</small>
+              </div>
+              <p class="mb-1">{{ $preview = substr($post->body, 0, 100) . '...' }}</p>
+              <small>{{ $post->body_parts }}</small>
+            </a>
+          @endforeach
         </div>
         <a class="pull-right btn btn-primary"href="posts/create">Publish a routine</a>
       </div>
