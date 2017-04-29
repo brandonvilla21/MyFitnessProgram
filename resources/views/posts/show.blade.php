@@ -66,7 +66,7 @@
 
     @endif
 
-    @include('layouts.tags')
+    @include('posts.tags')
 
   </div>
 
