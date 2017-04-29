@@ -28,6 +28,10 @@
   margin-top: 5px;
 }
 
+.btn-center{
+  margin: 0 auto;
+}
+
 @media (max-width: 768px) {
   .btn-responsive {
     padding:2px 4px;

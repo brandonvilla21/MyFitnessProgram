@@ -73,12 +73,17 @@
         <input type="file" name="photo" class="form-control">
       </div>
 
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary">Publish</button>
-      </div>
-
       @include('layouts.errors')
 
+      <div class="card">
+        <h3 class="m-b-2 text-center">Tags</h3>
+        @include('tags.show')
+      </div>
+
+      <hr>
+      <div class="form-group">
+        <button type="submit" class="btn btn-success">Publish</button>
+      </div>
     </form>
 
   </div>
