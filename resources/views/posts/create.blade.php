@@ -75,10 +75,7 @@
 
       @include('layouts.errors')
 
-      <div class="card">
-        <h3 class="m-b-2 text-center">Tags</h3>
-        @include('tags.show')
-      </div>
+      @include('tags.show')
 
       <hr>
       <div class="form-group">
