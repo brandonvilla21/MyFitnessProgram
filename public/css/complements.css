@@ -79,4 +79,11 @@
 .title-padding-bottom {
   padding-bottom: 1rem;
 }
+
+.show-post{
+  width: 100%;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
 /*CAROUSEL*/

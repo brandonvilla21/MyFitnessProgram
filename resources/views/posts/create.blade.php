@@ -5,18 +5,20 @@
 
     <h2 class="text-center">Publish a rutine</h2>
     <hr />
-    <form method="POST" action="/posts" enctype="multipart/form-data">
+    <form method="POST" action="{{ route('post_store') }}" enctype="multipart/form-data">
       {{ csrf_field() }}
 
       <div class="form-group">
         <label for="title">Title:</label>
         <input type="text" class="form-control" id="title" name="title">
       </div>
-
+      <hr>
       <div class="form-group">
         <label for="body">Body:</label>
         <textarea name="body" id="body" class="form-control"></textarea>
       </div>
+      <hr>
+
       <div class="form-group">
         <label class="mr-sm-2" for="inlineFormCustomSelect">Routine for: </label>
         <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="inlineForm" name="routine_for">
@@ -34,6 +36,8 @@
           <option value="Advanced">Advanced</option>
         </select>
       </div>
+      <hr>
+
       <div class="form-group">
         <label>Body part(s): </label>
         <div class="form-check">
@@ -66,12 +70,14 @@
             Triceps
           </label>
         </div>
+        <hr>
 
       </div>
       <div class="form-group">
         <label for="image">Post image:</label>
         <input type="file" name="photo" class="form-control">
       </div>
+      <hr>
 
       @include('layouts.errors')
 
@@ -82,6 +88,9 @@
         <button type="submit" class="btn btn-success">Publish</button>
       </div>
     </form>
+
+    <script src="{{ URL::to('src/js/vendor/tinymce/js/tinymce/tinymce.min.js') }}"></script>
+    <script src="{{ URL::to('js/tinymce_config.js') }}"></script>﻿
 
   </div>
 @endsection

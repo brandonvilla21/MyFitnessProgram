@@ -52,6 +52,8 @@ class PostsController extends Controller
       'photo'             => 'image'
     ]);
 
+    // dd($request->content);
+
     //Convert array to string
     $body_partsString = implode(', ', $request->body_parts);
 
@@ -77,7 +79,6 @@ class PostsController extends Controller
     //Getting the tags in a variable.
     $tags = $request->tags;
 
-    //Add the post slug to the post object
     auth()->user()->publish($post, $tags);
 
 

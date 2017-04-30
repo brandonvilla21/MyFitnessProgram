@@ -11,7 +11,7 @@
       <span class="glyphicon glyphicon-time"></span><h6 class="small comment-meta text-center">Posted by<a href="#"> {{ $post->user->name }}</a> | {{ $post->created_at->diffForHumans() }}</h6>
       <hr >
       <div class="row">
-        <div class="col-md-5">
+        <div class="col-md-12">
           <div class="form-group">
             <div class="list-group">
               <a href="#" class=" list-group-item active">Routine information</a>
@@ -21,11 +21,10 @@
             </div>
           </div>
         </div>
-        <div class="col-md-7">
-          <p clss="lead">
-            {{ $post->body }}
-          </p>
-        </div>
+      </div>
+      <hr>
+      <div class="show-post img-fluid">
+        {!! $post->body !!}
       </div>
     </div>
 
