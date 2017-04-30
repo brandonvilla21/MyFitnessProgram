@@ -65,15 +65,15 @@
 
 /*MANTAIN ASPECT RATIO ON IMAGES WITCH BELONG TO A DIV NAMED CROP*/
 .crop {
-    width: 100%;
-    height: 200px;
-    overflow: hidden;
-    border-radius: 5px;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 5px;
 }
 
 .crop img {
-    width: 125%;
-    margin: -10px 0 0 -20px;
+  width: 125%;
+  margin: -10px 0 0 -20px;
 }
 
 .title-padding-bottom {
@@ -86,4 +86,9 @@
   border-radius: 5px;
 }
 
+.show-post img
+{
+  width:100%;
+  height:auto;
+}
 /*CAROUSEL*/
