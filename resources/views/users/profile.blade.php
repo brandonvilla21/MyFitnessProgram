@@ -37,8 +37,18 @@
                 <h5 class="mb-1">{{ $post->title }}</h5>
                 <small>{{ $post->created_at->diffForHumans() }}</small>
               </div>
-              <p class="mb-1">{{ $preview = substr($post->body, 0, 100) . '...' }}</p>
               <small>{{ $post->body_parts }}</small>
+              <div class="d-flex w-100 justify-content-between">
+                <div class="card-block">
+                  <div class="row">
+                    @foreach ($post->tags as $tag)
+                      <p class="btn btn-sm btn-outline-info btn-space">
+                        {{ $tag->name }}
+                      </p>
+                    @endforeach
+                  </div>
+                </div>
+              </div>
             </a>
           @endforeach
         </div>

@@ -6,10 +6,9 @@
 
             <img class="img-responsive" src="/uploads/posts/{{ $posts[$i]->image }}" alt="{{ $posts[$i]->title }}">
             <div class="container">
-              <div class="carousel-caption d-none d-md-block text-left">
+              <div class="carousel-caption d-none d-md-block text-center">
                 <h1>{{ $posts[$i]->title }}</h1>
-                <p class="lead">{{ $preview = substr($posts[$i]->body, 0, 100) . '...'}}</p>
-                <p><a class="btn btn-lg btn-primary" href="/posts/{{ $posts[$i]->id }}" role="button">See Details!</a></p>
+                <p><a class="btn btn-lg btn-success" href="/posts/{{ $posts[$i]->id }}" role="button">See post</a></p>
               </div>
             </div>
           </div>
@@ -54,7 +53,6 @@
           <div class="container">
             <div class="carousel-caption d-none d-md-block">
               <h1>Find a plan.</h1>
-              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
               <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
             </div>
           </div>

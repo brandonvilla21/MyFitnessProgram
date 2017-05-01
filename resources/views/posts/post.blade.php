@@ -6,8 +6,7 @@
   <div class="card card-outline-secondary mb-3 text-center">
     <div class="text-center">
       <h4 class="card-header">{{$post->title }}</h4>
-      <p class="text-justify">{{ $preview = substr($post->body, 0, 100) . '...'}}</p>
-      <a href="/posts/{{ $post->id }}"class="btn btn-success btn-space-top">See post</a>
+      <a href="/posts/{{ $post->id }}"class="btn btn-lg btn-success btn-space-top">See post</a>
     </div>
   </div>
 </div>
