@@ -2,7 +2,7 @@
 
 @section('content')
 
-  @if ($post->id == Auth::user()->id)
+  @if ($post->user->id == Auth::user()->id)
     <div class="col-sm-8 container">
 
       <h2 class="text-center">Editing "{{ $post->title }}"</h2>
