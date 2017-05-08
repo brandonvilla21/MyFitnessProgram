@@ -15,7 +15,7 @@
       <hr>
       <div class="form-group">
         <label for="body">Body:</label>
-        <textarea name="body" class="form-control" id="body" value="{!! $post->body !!}"></textarea>
+        <textarea name="body" class="form-control" id="body">{!! $post->body !!}</textarea>
       </div>
       <hr>
 
