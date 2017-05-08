@@ -51,7 +51,15 @@
                   </div>
                 </div>
               </a>
-              <a href="{{ route('post_edit', $post->id) }}" class="btn btn-success">Edit post</a>
+              <div class="text-center">
+                <a href="{{ route('post_edit', $post->id) }}" class="col-md-10 mt-2 btn btn-info">Edit post</a>
+              </div>
+              <div class="text-center">
+                <a href="posts/delete/{{ $post->id }}" class="col-md-10 mt-2 btn btn-danger">Delete post</a>
+              </div>
+
+
+
             </div>
           @endforeach
         </div>

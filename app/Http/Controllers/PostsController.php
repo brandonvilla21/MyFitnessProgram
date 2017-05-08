@@ -143,4 +143,9 @@ class PostsController extends Controller
     return redirect('/');
   }
 
+  public function destroy(Post $post)
+  {
+    redirect('/');
+  }
+
 }
