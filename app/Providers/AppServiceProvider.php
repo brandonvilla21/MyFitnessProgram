@@ -39,6 +39,12 @@ class AppServiceProvider extends ServiceProvider
       $tags = Tag::all();
       $view->with(compact('tags'));
     });
+
+    view()->composer('tags.edit', function ($view){
+
+      $tags = Tag::all();
+      $view->with(compact('tags'));
+    });
   }
 
   /**

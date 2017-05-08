@@ -32,24 +32,27 @@
         <h3>Your posts:</h3>
         <div class="list-group pb-3">
           @foreach ($user->posts as $post)
-            <a href="/posts/{{ $post->id }}" class="list-group-item list-group-item-action flex-column align-items-start">
-              <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">{{ $post->title }}</h5>
-                <small>{{ $post->created_at->diffForHumans() }}</small>
-              </div>
-              <small>{{ $post->body_parts }}</small>
-              <div class="d-flex w-100 justify-content-between">
-                <div class="card-block">
-                  <div class="row">
-                    @foreach ($post->tags as $tag)
-                      <p class="btn btn-sm btn-outline-info btn-space">
-                        {{ $tag->name }}
-                      </p>
-                    @endforeach
+            <div class="card">
+              <a href="{{ route('post_show', $post->id) }}" class="list-group-item list-group-item-action flex-column align-items-start">
+                <div class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-1">{{ $post->title }}</h5>
+                  <small>{{ $post->created_at->diffForHumans() }}</small>
+                </div>
+                <small>{{ $post->body_parts }}</small>
+                <div class="d-flex w-100 justify-content-between">
+                  <div class="card-block">
+                    <div class="row">
+                      @foreach ($post->tags as $tag)
+                        <p class="btn btn-sm btn-outline-info btn-space">
+                          {{ $tag->name }}
+                        </p>
+                      @endforeach
+                    </div>
                   </div>
                 </div>
-              </div>
-            </a>
+              </a>
+              <a href="{{ route('post_edit', $post->id) }}" class="btn btn-success">Edit post</a>
+            </div>
           @endforeach
         </div>
         <a class="pull-right btn btn-primary"href="posts/create">Publish a routine</a>

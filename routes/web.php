@@ -3,7 +3,8 @@
 Route::get('/', 'PostsController@index')->name('home');
 Route::get('/posts/create', 'PostsController@create')->name('create');
 Route::post('/posts', 'PostsController@store')->name('post_store');
-Route::get('/posts/{post}', 'PostsController@show');
+Route::get('/posts/{post}', 'PostsController@show')->name('post_show');
+Route::get('/posts/{post}/edit', 'PostsController@edit')->name('post_edit');
 
 //WYSIWYG TEST
 // Route::post('/submit', function(\Illuminate\Http\Request $request){

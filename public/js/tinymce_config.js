@@ -3,6 +3,7 @@ var editor_config = {
   media_poster: false,
   path_absolute : "/",
   selector : "textarea#body",
+  // valid_elements : 'a[href|target=_blank],strong/b,div[align],br'
   plugins: [
     "autoresize advlist autolink lists link image charmap print preview hr anchor pagebreak",
     "searchreplace wordcount visualblocks visualchars code fullscreen",
