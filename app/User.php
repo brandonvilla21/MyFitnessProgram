@@ -50,4 +50,20 @@ class User extends Authenticatable
       //   'user_id' => auth()->id()
       // ]);
     }
+
+    public function edit($post, $tags)
+    {
+      $post->update();
+
+      //Detach the post from its tags.
+      $post->tags()->detach();
+
+      //Attaching the post with its tags.
+      for ($i=0; $i < sizeOf($tags); $i++) {
+        $tag = Tag::where('id', $tags[$i])->first();
+        $post->tags()->attach($tag);
+      }
+
+
+    }
 }

@@ -5,9 +5,9 @@
 
     <h2 class="text-center">Editing "{{ $post->title }}"</h2>
     <hr />
-    <form method="POST" action="{{ route('post_store') }}" enctype="multipart/form-data">
+    <form method="POST" action="{{ route('post_update', ['post' => $post->id]) }}" enctype="multipart/form-data">
+      {{ method_field('PATCH') }}
       {{ csrf_field() }}
-
       <div class="form-group">
         <label for="title">New title:</label>
         <input type="text" class="form-control" id="title" name="title" value="{{ $post->title }}">
@@ -102,7 +102,7 @@
 
       <hr>
       <div class="form-group">
-        <button type="submit" class="btn btn-success">Publish</button>
+        <button type="submit" class="btn btn-success">Edit</button>
       </div>
     </form>
 
