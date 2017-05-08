@@ -76,21 +76,22 @@
 
       </div>
 
-      <div class="row">
-        <div class="col-md-6 container">
-          <h4 class="text-center">Current image</h4>
-          <img class="img-show img-fluid rounded mx-auto d-block" src="/uploads/posts/{{$post->image }}" alt="Generic placeholder image" width="400">
+      <div class="card" style="margin-bottom: 1em;">
+        <div class="row">
+          <div class="col-md-6 container">
+            <h4 class="text-center">Current image</h4>
+            <img class="img-show img-fluid rounded mx-auto d-block" src="/uploads/posts/{{$post->image }}" alt="" width="400">
 
-        </div>
-        <div class="col-md-6 container">
-          <h4 class="text-center">New image</h4>
-          <img class="img-show img-fluid rounded mx-auto d-block preview" src="" alt="" width="400">
+          </div>
+          <div class="col-md-6 container">
+            <h4 class="text-center">New image</h4>
+            <img class="img-show img-fluid rounded mx-auto d-block preview" width="400">
 
+          </div>
         </div>
       </div>
-
       <div class="form-group">
-        <label for="image">New image:</label>
+        <label for="image">If you want a new image for your post, choose it below!</label>
         <input type="file" name="photo" class="form-control" onchange="loadPreview(this)">
       </div>
       <hr>
