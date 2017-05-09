@@ -8,7 +8,7 @@ use App\Repositories\Posts;
 use Carbon\Carbon;
 use Image;
 use Illuminate\Support\Facades\Storage;
-
+use App\Http\Controllers\Session;
 
 class PostsController extends Controller
 {
@@ -145,7 +145,11 @@ class PostsController extends Controller
 
   public function destroy(Post $post)
   {
-    redirect('/');
+
+    $post->delete();
+    // Session::flash('message', 'Post has been deleted succesfully');
+
+    return redirect('/');
   }
 
 }
