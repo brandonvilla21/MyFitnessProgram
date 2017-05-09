@@ -6,7 +6,7 @@ Route::post('/posts', 'PostsController@store')->name('post_store');
 Route::patch('/posts/{post}', 'PostsController@update')->name('post_update');
 Route::get('/posts/{post}', 'PostsController@show')->name('post_show');
 Route::get('/posts/{post}/edit', 'PostsController@edit')->name('post_edit');
-// Route::delete('/posts/{post}', 'PostsController@destroy')->name('post_destroy');
+Route::delete('/posts/{post}', 'PostsController@destroy')->name('post_destroy');
 // First, show a view to confirm the delte and then delete de post
 
 //WYSIWYG TEST
