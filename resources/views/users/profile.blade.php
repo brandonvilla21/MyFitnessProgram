@@ -55,7 +55,13 @@
                 <a href="{{ route('post_edit', $post->id) }}" class="col-md-10 mt-2 btn btn-info">Edit post</a>
               </div>
               <div class="text-center">
-                <a href="posts/delete/{{ $post->id }}" class="col-md-10 mt-2 btn btn-danger">Delete post</a>
+                {{-- {{ Form::open(array('route' => array('post_destroy', $post->id), 'method' => 'delete')) }} --}}
+                {{ Form::open(array('url' => 'posts/' . $post->id, 'class' => 'pull-right')) }}
+                {{ Form::hidden('_method', 'DELETE') }}
+
+                  <button type="submit" class="col-md-10 mt-2 btn btn-danger">Delete post</button>
+
+                {{ Form::close() }}
               </div>
 
 
