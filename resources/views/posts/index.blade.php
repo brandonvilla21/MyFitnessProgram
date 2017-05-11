@@ -11,4 +11,9 @@
     </div>
   </div>
 
+  <div class="container">
+    @include('layouts.feature')
+
+  </div>
+
 @endsection

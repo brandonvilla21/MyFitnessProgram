@@ -32,8 +32,6 @@
   <div class="container">
     {{-- @include('layouts.heading') --}}
 
-    @include('layouts.feature')
-
     @include('layouts.footer')
 
   </div><!-- container -->
