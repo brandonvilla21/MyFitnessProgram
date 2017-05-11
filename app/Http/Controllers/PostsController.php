@@ -99,7 +99,6 @@ class PostsController extends Controller
       'routine_for'       => 'required',
       'difficulty_level'  => 'required',
       'body_parts'        => 'required',
-      'tags'              => 'required',
       'photo'             => 'image|mimes:jpeg,bmp,png|max:5120'
     ]);
 
