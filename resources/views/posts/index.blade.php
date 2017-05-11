@@ -9,6 +9,12 @@
           @include('posts.post')
       @endforeach
     </div>
+
+    <div class="container">
+      {{ $posts->links('vendor.pagination.bootstrap-4') }}
+    </div>
+
+
   </div>
 
   <div class="container">

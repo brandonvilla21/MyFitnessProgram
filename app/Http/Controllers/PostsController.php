@@ -21,12 +21,12 @@ class PostsController extends Controller
 
   public function index(Posts $posts)
   {
-    $posts = Post::latest()
-    ->filter(request(['month', 'year']))
-    ->get();
+    // $posts = Post::latest()
+    // ->filter(request(['month', 'year']))
+    // ->get();
 
-    //$posts = $posts->all();
-
+    $posts = Post::latest()->paginate(6);
+    
     return view('posts.index', compact('posts'));
   }
 
