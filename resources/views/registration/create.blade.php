@@ -10,12 +10,12 @@
 
       <div class="form-group">
         <label for="name">Name:</label>
-        <input type="text" class="form-control" id="name" name="name" required>
+        <input type="text" class="form-control" id="name" name="name" required value="{{ old('name') }}">
       </div>
 
       <div class="form-group">
         <label for="email">Email:</label>
-        <input type="email" class="form-control" id="email" name="email" placeholder="example@gmail.com" required>
+        <input type="email" class="form-control" id="email" name="email" placeholder="example@gmail.com" required value="{{ old('email') }}">
       </div>
 
       <div class="form-group">
