@@ -26,7 +26,7 @@ class PostsController extends Controller
     // ->get();
 
     $posts = Post::latest()->paginate(6);
-    
+
     return view('posts.index', compact('posts'));
   }
 
@@ -58,7 +58,8 @@ class PostsController extends Controller
     $body_partsString = implode(', ', $request->body_parts);
 
     //Manipulate the image
-    $filename = "default.jpg";
+    $filename = 'default/'.$this->getRandomDefaultImage();
+    // $filename = "default.jpg";
 
     if ($request->hasFile('photo')) {
       $post_image = $request->file('photo');
@@ -148,6 +149,13 @@ class PostsController extends Controller
     // Session::flash('message', 'Post has been deleted succesfully');
 
     return redirect('/');
+  }
+
+  public function getRandomDefaultImage()
+  {
+    $array = ["default.jpg","default1.jpg","default2.jpg","default3.jpg","default4.jpg","default5.jpg","default6.jpg","default7.jpg"];
+    $random = $array[mt_rand(0, count($array) - 1)];
+    return $random;
   }
 
 }
