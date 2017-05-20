@@ -64,7 +64,7 @@
           @endforeach
 
           <div class="container">
-            {{ $user_posts->links('vendor.pagination.bootstrap-4') }}
+            {{ $user_posts->render('vendor.pagination.bootstrap-4') }}
           </div>
 
         </div>

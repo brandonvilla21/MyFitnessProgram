@@ -11,7 +11,7 @@
     </div>
 
     <div class="container">
-      {{ $posts->links('vendor.pagination.bootstrap-4') }}
+      {{ $posts->render('vendor.pagination.bootstrap-4') }}
     </div>
 
 
