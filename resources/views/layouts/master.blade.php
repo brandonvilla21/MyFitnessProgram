@@ -21,13 +21,15 @@
   @include('layouts.nav')
 
   @if ($flash = session('message'))
-    <div id="flash-message" class="alert alert-success" role="alert">
-      {{ $flash }}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <strong>{{ $flash }}</strong>
     </div>
   @endif
 
   @yield('content')
-
 
   <div class="container">
     {{-- @include('layouts.heading') --}}
