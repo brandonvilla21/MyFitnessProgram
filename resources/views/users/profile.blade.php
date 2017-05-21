@@ -26,7 +26,9 @@
             {{ csrf_field() }}
             <input type="file" name="avatar" class="form-group" onchange="loadPreview(this)">
             <input type="submit" class="pull-right btn btn-sm btn-primary">
-            @include('layouts.errors')
+            <div class="container">
+                @include('layouts.errors')
+            </div>
           </form>
         </div>
 
