@@ -7,7 +7,6 @@ use App\Post;
 use App\Repositories\Posts;
 use Carbon\Carbon;
 use Image;
-use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Session;
 
 class PostsController extends Controller
@@ -58,7 +57,7 @@ class PostsController extends Controller
     $body_partsString = implode(', ', $request->body_parts);
 
     //Manipulate the image
-    $filename = 'default/'.$this->getRandomDefaultImage();
+    $filename = $this->getRandomDefaultImage();
     // $filename = "default.jpg";
 
     if ($request->hasFile('photo')) {
@@ -111,12 +110,14 @@ class PostsController extends Controller
     //Manipulate the image
     $filename = $post->image;
 
+    if($this->isDefaultImage($filename) == false)//If false, the old image will be deleted.
+    {
+      \File::delete( public_path('/uploads/posts/') . $filename);
+    }
+
     if ($request->hasFile('photo')) {
       $post_image = $request->file('photo');
-
-      //Delete old Image
-      Storage::delete(public_path('/uploads/posts/') . $filename);
-
+      $filename = time() . '.' . $post_image->getClientOriginalExtension();
       Image::make($post_image)->resize(1000, null, function ($constraint) {
         $constraint->aspectRatio();
         $constraint->upsize();
@@ -135,7 +136,7 @@ class PostsController extends Controller
     $tags = $request->tags;
 
     auth()->user()->edit($post, $tags);
-    session()->flash('message', 'Successfully updated post!');
+    session()->flash('message', 'Your post was successfully updated :D');
 
 
     //And then redirect to the homepage.
@@ -156,6 +157,12 @@ class PostsController extends Controller
     $array = ["default.jpg","default1.jpg","default2.jpg","default3.jpg","default4.jpg","default5.jpg","default6.jpg","default7.jpg"];
     $random = $array[mt_rand(0, count($array) - 1)];
     return $random;
+  }
+
+  public function isDefaultImage($filename)
+  {
+    $array = ["default.jpg","default1.jpg","default2.jpg","default3.jpg","default4.jpg","default5.jpg","default6.jpg","default7.jpg"];
+    return in_array($filename, $array);
   }
 
 }

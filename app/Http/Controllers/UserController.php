@@ -28,6 +28,13 @@ class UserController extends Controller
       'avatar' => 'required|image'
     ]);
 
+    $user = Auth::user();
+    $oldAvatar = $user->avatar;
+
+    if($oldAvatar != "default.png")//It true, the old image will be deleted.
+    {
+      \File::delete( public_path('/uploads/avatars/') . $oldAvatar);
+    }
 
     if (request()->hasFile('avatar')) {
       $avatar = request()->file('avatar');
@@ -37,10 +44,12 @@ class UserController extends Controller
             $constraint->upsize();
       })->save( public_path('/uploads/avatars/') . $filename);
 
-      $user = Auth::user();
+
+
       $user->avatar = $filename;
       $user->save();
 
+      session()->flash('message', 'Your avatar was succesfully updated :)');
       return view('users.profile', compact('user'));
     }
   }
