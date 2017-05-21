@@ -27,6 +27,7 @@ class SessionsController extends Controller
       ]);
     }
     //If so, sign them in. (Attempt method do this automatically)
+    session()->flash('message', 'Welcome, '.auth()->user()->name.'!');
     return redirect()->home();
   }
 
