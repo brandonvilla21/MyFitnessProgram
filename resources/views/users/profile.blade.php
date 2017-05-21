@@ -58,15 +58,15 @@
               <small>{{ $post->body_parts }}</small>
 
               <div class="btn-center">
-                <a href="{{ route('post_show', $post->id) }}" class="col-md-10 mt-2">See post</a>
+                <a href="{{ route('post_show', $post->id) }}" class="col-md-10 mt-2 btn btn-primary">See post</a>
 
-                <a href="{{ route('post_edit', $post->id) }}" class="col-md-10 mt-2">Edit post</a>
+                <a href="{{ route('post_edit', $post->id) }}" class="col-md-10 mt-2 btn btn-info">Edit post</a>
 
                 {{-- {{ Form::open(array('route' => array('post_destroy', $post->id), 'method' => 'delete')) }} --}}
                 {{ Form::open(array('url' => 'posts/' . $post->id)) }}
                 {{ Form::hidden('_method', 'DELETE') }}
 
-                <button type="submit" class="col-md-10 mt-2 btn btn-link">Delete post</button>
+                <button type="submit" class="col-md-10 mt-2 btn btn-danger">Delete post</button>
 
                 {{ Form::close() }}
 
