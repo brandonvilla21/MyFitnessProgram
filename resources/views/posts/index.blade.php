@@ -3,7 +3,7 @@
 @section('content')
   @include('layouts.carousel')
 
-  <div class="container">
+  <div class="container" id="content">
     <div class="row">
       @foreach ($posts as $post)
           @include('posts.post')

@@ -18,7 +18,7 @@
       <img class="second-slide" src="/images/carousel2.jpg" alt="Find your plan">
       <div class="container">
         <div class="carousel-caption d-none d-md-block">
-          <h1>Find a plan.</h1>
+          <h1>Find your plan.</h1>
           <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
         </div>
       </div>
@@ -28,8 +28,8 @@
       <div class="container">
         <div class="carousel-caption d-none d-md-block text-right">
           <h1>Start your fitness program today.</h1>
-          <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-          <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+          <p class="">You can custom and mix several type of training models. Just navegate across our plataform and get familiar with it.</p>
+          <p><a class="btn btn-lg btn-primary" href="#content" role="button">Go ahead!</a></p>
         </div>
       </div>
     </div>
