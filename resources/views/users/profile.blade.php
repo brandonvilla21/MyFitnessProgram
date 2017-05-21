@@ -3,7 +3,7 @@
 @section('content')
 
   @php
-    $user_posts = App\Post::where('user_id', $user->id)->latest()->paginate(2);
+  $user_posts = App\Post::where('user_id', $user->id)->latest()->paginate(2);
   @endphp
 
   <div class="container">
@@ -24,10 +24,18 @@
         <div class="col-lg-12">
           <form enctype="multipart/form-data" action="/profile" class="form-group" role="form" method="POST">
             {{ csrf_field() }}
-            <input type="file" name="avatar" class="form-group" onchange="loadPreview(this)">
+            <hr>
+            <div class="image-upload">
+              <label for="file-input">
+                <img src="icons/image_icon.png"/>
+              </label>
+              <small>(Upload)</small>
+              <input id="file-input" type="file" name="avatar" class="form-group" onchange="loadPreview(this)">
+            </div>
+            <hr>
             <input type="submit" class="pull-right btn btn-sm btn-primary">
             <div class="container">
-                @include('layouts.errors')
+              @include('layouts.errors')
             </div>
           </form>
         </div>
@@ -35,34 +43,37 @@
       </div>
       <div class="col-md-1">
       </div>
-      <div class="col-md-7">
+      <div class="col-md-7 col-xs-4">
         <h3>Your posts:</h3>
+        <hr>
         <div class="list-group pb-3">
           @foreach ($user_posts; as $post)
+            <img class="card-img-top img-fluid" src="/uploads/posts/{{ $post->image }}" alt="Card image cap">
             <div class="card">
               {{-- <a href="{{ route('post_show', $post->id) }}" class="list-group-item list-group-item-action flex-column align-items-start"> --}}
               <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">{{ $post->title }}</h5>
+                <h3 class="mb-1 text-center">{{ $post->title }}</h3>
                 <small>{{ $post->created_at->diffForHumans() }}</small>
               </div>
               <small>{{ $post->body_parts }}</small>
 
               <div class="btn-center">
-                <a href="{{ route('post_show', $post->id) }}" class="col-md-10 mt-2 btn btn-success">See post</a>
+                <a href="{{ route('post_show', $post->id) }}" class="col-md-10 mt-2">See post</a>
 
-                <a href="{{ route('post_edit', $post->id) }}" class="col-md-10 mt-2 btn btn-info">Edit post</a>
+                <a href="{{ route('post_edit', $post->id) }}" class="col-md-10 mt-2">Edit post</a>
 
                 {{-- {{ Form::open(array('route' => array('post_destroy', $post->id), 'method' => 'delete')) }} --}}
-                {{ Form::open(array('url' => 'posts/' . $post->id, 'class' => 'pull-right')) }}
+                {{ Form::open(array('url' => 'posts/' . $post->id)) }}
                 {{ Form::hidden('_method', 'DELETE') }}
 
-                <button type="submit" class="col-md-10 mt-2 btn btn-danger">Delete post</button>
+                <button type="submit" class="col-md-10 mt-2 btn btn-link">Delete post</button>
 
                 {{ Form::close() }}
 
               </div>
 
             </div>
+            <br>
           @endforeach
 
           <div class="container">

@@ -95,4 +95,15 @@ body{
   width:100%;
   height:auto;
 }
-/*CAROUSEL*/
+
+/*IMAGE UPLOAD*/
+.image-upload > input
+{
+    display: none;
+}
+
+.image-upload img
+{
+    width: 30px;
+    cursor: pointer;
+}
