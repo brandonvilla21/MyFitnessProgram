@@ -3,7 +3,7 @@
 @section('content')
   <div class="col-sm-8 container">
 
-    <h2 class="text-center">Publish a rutine</h2>
+    <h2 class="text-center">Publish a routine</h2>
     <hr />
     <form method="POST" action="{{ route('post_store') }}" enctype="multipart/form-data">
       {{ csrf_field() }}
