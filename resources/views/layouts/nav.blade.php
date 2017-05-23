@@ -3,8 +3,8 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <a class="navbar-brand" href="/">MyFitnessProgram</a>
-  <div class="collapse navbar-collapse" id="navbarCollapse">
-    <ul class="navbar-nav mr-auto">
+  <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
+    {{-- <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
       </li>
@@ -17,10 +17,10 @@
       <li class="nav-item">
         <a class="nav-link" href="#">Sports</a>
       </li>
-    </ul>
+    </ul> --}}
 
     @if (count($archives))
-      <div class="dropdown">
+      <div class="dropdown text-right">
         <button class="btn btn-primary btn-space btn-responsive dropdown-toggle" type="button" data-toggle="dropdown">Archives
           <span class="caret"></span></button>
           <ul class="dropdown-menu" role="menu">
@@ -64,7 +64,7 @@
                       {{ Auth::user()->name }} <span class="caret"></span>
                   </a>
                   <img src="/uploads/avatars/{{ Auth::user()->avatar }}" style="width:32px; height:32px; top:10px; left:10px; border-radius:50%">
-                    
+
                   <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenu">
                       <li class="nav-item"><a href="/profile">Profile</a> </li>
                       <li class="nav-item"><a href="/logout">Logout</a> </li>
