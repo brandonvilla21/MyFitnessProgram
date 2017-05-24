@@ -9,8 +9,13 @@
       <img class="first-slide" src="/images/carousel1.jpg" alt="Create your account">
       <div class="container">
         <div class="carousel-caption d-none d-md-block text-left">
+          @if (Auth::guest())
           <h1>Create your account and share everything you want.</h1>
           <p><a class="btn btn-lg btn-primary" href="/register" role="button">Sign up today</a></p>
+          @else
+            <h1>You're already sign as <strong>{{ Auth::user()->name }}</strong></h1>
+            <h5>Feel free to explore our site!</h5>
+          @endif
         </div>
       </div>
     </div>
@@ -18,8 +23,14 @@
       <img class="second-slide" src="/images/carousel2.jpg" alt="Find your plan">
       <div class="container">
         <div class="carousel-caption d-none d-md-block">
-          <h1>Find your plan.</h1>
-          <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+          @if (Auth::guest())
+          <h1>Do you already have an account?</h1>
+          <p><a class="btn btn-lg btn-primary" href="/login" role="button">Sign in</a></p>
+          @else
+            <h1>You're already sign as <strong>{{ Auth::user()->name }}</strong></h1>
+            <h5>If you want to use another account, just logout below.</h5>
+            <p><a class="btn btn-lg btn-primary" href="/logout" role="button">Logout</a></p>
+          @endif
         </div>
       </div>
     </div>
