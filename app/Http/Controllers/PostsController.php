@@ -83,7 +83,7 @@ class PostsController extends Controller
 
 
     //And then redirect to the homepage.
-    return redirect('/');
+    return redirect()->route('post_show', $post->id);
   }
 
   public function edit(Post $post)
@@ -140,7 +140,7 @@ class PostsController extends Controller
 
 
     //And then redirect to the homepage.
-    return redirect('/');
+    return redirect()->route('post_show', $post->id);
   }
 
   public function destroy(Post $post)
@@ -149,7 +149,7 @@ class PostsController extends Controller
     $post->delete();
     // Session::flash('message', 'Post has been deleted succesfully');
 
-    return redirect('/');
+    return redirect()->route('show_profile');
   }
 
   public function getRandomDefaultImage()
