@@ -29,9 +29,9 @@ class RegistrationForm extends FormRequest
   {
     //Validate the form.
     return [
-      'name' => 'required',
-      'email' => 'required|email',
-      'password' => 'required|confirmed|min:4'
+      'name' => 'required|max:60',
+      'email' => 'required|email|max:60',
+      'password' => 'required|confirmed|min:4|max:30'
     ];
   }
 
