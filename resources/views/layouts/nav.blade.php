@@ -20,7 +20,7 @@
     </ul> --}}
 
     @if (count($archives))
-      <div class="dropdown text-right">
+      <div class="dropdown">
         <button class="btn btn-primary btn-space btn-responsive dropdown-toggle" type="button" data-toggle="dropdown">Archives
           <span class="caret"></span></button>
           <ul class="dropdown-menu" role="menu">
