@@ -9,12 +9,6 @@ Route::get('/posts/{post}/edit', 'PostsController@edit')->name('post_edit');
 Route::delete('/posts/{post}', 'PostsController@destroy')->name('post_destroy');
 // First, show a view to confirm the delte and then delete de post
 
-//WYSIWYG TEST
-// Route::post('/submit', function(\Illuminate\Http\Request $request){
-//   $content = $request['content'];
-//   return view('posts.output', ['content' => $content]);
-// })->name('submit');
-
 //TAGS
 Route::get('/posts/tags/{tag}', 'TagsController@index');
 
@@ -31,5 +25,5 @@ Route::post('/login', 'SessionsController@store');
 Route::get('/logout', 'SessionsController@destroy');
 
 //USERS
-Route::get('/profile', 'UserController@profile');
+Route::get('/profile', 'UserController@profile')->name('show_profile');
 Route::post('/profile', 'UserController@updateAvatar');
